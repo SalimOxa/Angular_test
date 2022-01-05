@@ -1,0 +1,75 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+  <!-- Mask -->
+  <span class="mask bg-gradient-info opacity-8"></span>
+  <!-- Header container -->
+  <div class=" align-items-center">
+    <div class="row">
+    </div>
+  </div>
+</div>
+
+
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <div class="card-body border-0">
+  </div>
+<!--  <div class="container container-fluid ">-->
+<!--    <div class="row">-->
+<!--      <div class="col">-->
+<!--        <div class="card shadow">-->
+<!--          <div class="row">-->
+<!--            <div class="col"><h2 class="text-info">etat panier:</h2></div>-->
+<!--            <div class="w-100"></div>-->
+<!--            <div class="col" *ngFor="let panier of panier">{{panier.etatPanier}}</div>-->
+<!--&lt;!&ndash;            <div *ngFor="let panier of panier ">{{panier.title}}</div>&ndash;&gt;-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0 ">
+          <h3 class="mb-0 bg-gradient-info " align="center">Panier</h3>
+        </div>
+<!--        <div class="col-lg-3 col-md-6">-->
+<!--        </div>-->
+          <div>
+            <table class="table table-striped" >
+              <thead class="thead-light">
+              <tr>
+                <th scope="col">Produit</th>
+                <th scope="col">prix</th>
+                <th scope="col">action</th>
+              </tr>
+              </thead>
+              <tbody *ngFor="let paniers of panier ">
+              <!--            <th scope="col">Métiers visés </th>-->
+
+
+              <tr *ngIf="paniers.event !== null">
+                <td>{{paniers.event.title}}</td>
+                <td>{{paniers.event.rate}},00TND</td>
+                <td><button (click)="deletePanier(paniers)" class="btn btn-danger" >Delete</button></td>
+
+
+              </tr>
+              <tr *ngIf="paniers.training !== null">
+                <td>{{paniers.training.title}}</td>
+                <td>{{paniers.training.rate}},00TND</td>
+                <td><button (click)="deletePanier(paniers)" class="btn btn-danger" >Delete</button></td>
+
+
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+          prix totale: {{nbr}}
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,41 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <a  class="btn btn-info" (click)="gotoajout()">ajouter un Financeur</a>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Table des Financeurs</h3>
+          </div>
+          <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>nom</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let fundere of funderes">
+
+      <td> {{fundere.name}}</td>
+      <td>
+        <button routerLink="/edit-fundere/{{fundere.id}}" class="btn btn-info">Modifier</button>
+        <button (click)="deleteFunder(fundere)" class="btn btn-danger" >Supprimer</button>
+  <!--      <button (click)="funderDetails(funder.id)" class="btn btn-info" >View</button>-->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

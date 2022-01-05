@@ -1,0 +1,146 @@
+
+<div class="header bg-gradient-info py-7 py-lg-8">
+    <div class="container">
+      <div class="header-body text-center mb-7">
+        <div class="row justify-content-center">
+        </div>
+      </div>
+
+      <div class="separator separator-bottom separator-skew zindex-100">
+        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+          xmlns="http://www.w3.org/2000/svg">
+          <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+        </svg>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container mt--8 pb-5">
+      <!-- Table -->
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Modifier Evènement</small>
+              </div>
+              <div class="card-body">
+                <div *ngIf="currentEvent" class="edit-form">
+                  <form>
+                    <div class="form-group">
+                      <label for="name">titre</label>
+                      <input type="text" class="form-control" id="name" [(ngModel)]="currentEvent.title"
+                        name="title" />
+                    </div>
+<!--                    <div class="form-group">-->
+<!--                      <label for="name">type</label>-->
+<!--                      <input type="text" class="form-control" id="name" [(ngModel)]="currentEvent.type" name="type" />-->
+<!--                    </div>-->
+                    <div class="form-group">
+                      <label for="name">Description</label>
+                      <textarea type="text" class="form-control" id="name" [(ngModel)]="currentEvent.description"
+                        name="description" >
+                      </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Tarif</label>
+                      <input type="text" class="form-control" id="name" [(ngModel)]="currentEvent.rate" name="rate" />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">duration</label>
+                      <input type="text" class="form-control" id="name" [(ngModel)]="currentEvent.duration"
+                        name="duration" />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Conditions d'accés</label>
+                      <input type="text" class="form-control" id="name" [(ngModel)]="currentEvent.conditions"
+                        name="conditions" />
+                    </div>
+                    <div class="form-group">
+                      <label for="name">publics visés et modalité d'admition</label>
+                      <textarea type="text" class="form-control" id="name" [(ngModel)]="currentEvent.targetedaudience"
+                        name="targetedaudience" >
+                      </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Objectifs pédagogiques</label>
+                      <textarea type="text" class="form-control" id="name" [(ngModel)]="currentEvent.object"
+                             name="object" >
+                      </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Modalités d'examen</label>
+                      <textarea type="text" class="form-control" id="name" [(ngModel)]="currentEvent.exammodalities"
+                             name="exammodalities" >
+                      </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">le programme</label>
+                      <textarea type="text" class="form-control" id="name" [(ngModel)]="currentEvent.program"
+                             name="program" >
+                      </textarea>
+                    </div>
+                    <div class="form-group">
+                      <label for="photo">photo</label>
+                      <div class="col">{{currentEvent.photo}}</div>
+                      <input type="file" class="form-control-file" id="photo" (change)="selectFiles($event.target.files)"
+                        [(ngModel)]="currentEvent.photo" >
+
+                    </div>
+                    <label for=""> Job</label>
+                    <ng-multiselect-dropdown
+                        name="jobes"
+                        [placeholder]="'select Job'"
+                        [settings]="dropdownSettingsJob"
+                        [data]="jobes"
+                        [(ngModel)]="selectedjobs"
+                        (onDeSelect)="onDeselectedJob($event)"
+                        (onSelect)="onselectjob($event)"
+                        (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>
+
+                    <label for=""> Domain</label>
+                    <ng-multiselect-dropdown
+                        name="domaines"
+                        [placeholder]="'select domain'"
+                        [settings]="dropdownSettingsDomain"
+                        [data]="domaines"
+                        [(ngModel)]="selecteddomains"
+                        (onSelect)="onselectdomain($event)"
+                        (onSelectAll)="onSelectAlldomain($event)">
+                    </ng-multiselect-dropdown>
+
+                    <label for=""> Funder</label>
+                    <ng-multiselect-dropdown
+                        name="funderes"
+                        [placeholder]="'select funder'"
+                        [settings]="dropdownSettingsFunder"
+                        [data]="funderes"
+                        [(ngModel)]="selectedfunders"
+                        (onSelect)="onselectfunder($event)"
+                        (onSelectAll)="onSelectAllfunder($event)">
+                    </ng-multiselect-dropdown>
+                    <label for=""> Modality</label>
+                    <ng-multiselect-dropdown
+                        name="modalityes"
+                        [placeholder]="'select modality'"
+                        [settings]="dropdownSettingsModality"
+                        [data]="modalityes"
+                        [(ngModel)]="selectedmodalitys"
+                        (onSelect)="onselectmodality($event)"
+                        (onSelectAll)="onSelectAllmodality($event)">
+                    </ng-multiselect-dropdown>
+
+                  </form>
+
+                  <button type="button" class="btn btn-danger" (click)="updateEvent()">Update</button>
+
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

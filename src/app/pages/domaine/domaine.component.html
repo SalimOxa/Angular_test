@@ -1,0 +1,42 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <a  class="btn btn-info" (click)="gotoajout()">ajouter un domaine</a>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Table des domaines</h3>
+        </div>
+        <div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+  <tr>
+<!--    <th>id</th>-->
+    <th>name</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let domaine of domaines">
+<!--    <td> {{domaine.id}}</td>-->
+    <td> {{domaine.name}}</td>
+    <td>
+      <button routerLink="/edit-domaine/{{domaine.id}}" class="btn btn-info">Update</button>
+      <button (click)="deleteDomain(domaine)" class="btn btn-danger" >Delete</button>
+<!--      <button (click)="domainDetails(domain.id)" class="btn btn-info" >View</button>-->
+    </td>
+  </tr>
+  </tbody>
+</table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

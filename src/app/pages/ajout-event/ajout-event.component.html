@@ -1,0 +1,265 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+  <div class="container-fluid" >
+    <div class="header-body">
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container">
+  <div class="header-body text-center mb-7">
+    <div class="row justify-content-center">
+    </div>
+  </div>
+
+  <div class="separator separator-bottom separator-skew zindex-100">
+    <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+    </svg>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4">
+            <small>Ajouter un evenement</small>
+          </div>
+          <form  *ngIf="!isSuccessful"
+                 name="form"
+                 (ngSubmit)="f.form.valid && onSubmit()"
+                 #f="ngForm"
+                 novalidate>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-books"></i></span>
+              </div>
+              <input matInput
+                     class="form-control"
+                     type="text"
+                     name="titre"
+                     [(ngModel)]="form.title"
+                     placeholder="Entrer titre"
+                     required
+                     #title="ngModel"
+              />
+              <div class="alert-danger" *ngIf="f.submitted && title.invalid">
+                <div *ngIf="title.errors.required">le champ titre est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-align-left-2"></i></span>
+              </div>
+              <!--              <label for="description">PRÉSENTATION ET OBJECTIFS</label>-->
+              <textarea matInput
+                        class="form-control"
+                        type="text"
+                        name="description"
+                        [(ngModel)]="form.description"
+                        placeholder="Entrer description"
+                        required
+                        #description="ngModel"></textarea>
+              <div class="alert-danger" *ngIf="f.submitted && description.invalid">
+                <div *ngIf="description.errors.required">le champ description est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-credit-card"></i></span>
+              </div>
+              <!--              <label for="rate">TARIF</label>-->
+              <input matInput
+                     class="form-control"
+                     type="number"
+                     name="rate"
+                     [(ngModel)]="form.rate"
+                     placeholder="Entrer tarif"
+                     required
+                     #rate="ngModel"
+              />
+              <div class="alert-danger" *ngIf="f.submitted && rate.invalid">
+                <div *ngIf="rate.errors.required">le champ tarif est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-watch-time"></i></span>
+              </div>
+              <!--              <label for="duration">DURÉE</label>-->
+              <input matInput
+                     class="form-control"
+                     type="number"
+                     name="duration"
+                     [(ngModel)]="form.duration"
+                     placeholder="Entrer la durée"
+                     required
+                     #duration="ngModel"
+              />
+              <div class="alert-danger" *ngIf="f.submitted && duration.invalid">
+                <div *ngIf="duration.errors.required">le champ durée est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+              </div>
+              <!--              <label for="conditions">CONDITIONS D'ACCÈS </label>-->
+              <textarea matInput
+                        class="form-control"
+                        type="text"
+                        name="conditions"
+                        [(ngModel)]="form.conditions"
+                        placeholder="Entrer les conditions d'accés"
+                        required
+                        #conditions="ngModel"></textarea>
+              <div class="alert-danger" *ngIf="f.submitted && conditions.invalid">
+                <div *ngIf="conditions.errors.required">le champ conditiions d'accés est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-ui-04"></i></span>
+              </div>
+              <!--              <label for="targetedaudience">PUBLICS VISÉS ET MODALITÉS D’ADMISSION</label>-->
+              <textarea matInput
+                        class="form-control"
+                        type="text"
+                        name="targetedaudience"
+                        [(ngModel)]="form.targetedaudience"
+                        placeholder="Entrer publics visés et modalité d'admition"
+                        required
+                        #targetedaudience="ngModel"></textarea>
+              <div class="alert-danger" *ngIf="f.submitted && targetedaudience.invalid">
+                <div *ngIf="targetedaudience.errors.required">le champ PUBLICS VISÉS ET MODALITÉS D’ADMISSION est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-user-run"></i></span>
+              </div>
+              <!--              <label for="object">OBJECTIFS PÉDAGOGIQUES</label>-->
+              <textarea matInput
+                        class="form-control"
+                        type="text"
+                        name="object"
+                        [(ngModel)]="form.object"
+                        placeholder="Entrer objectifs pédagogiques"
+                        required
+                        #object="ngModel"></textarea>
+              <div class="alert-danger" *ngIf="f.submitted && object.invalid">
+                <div *ngIf="object.errors.required">le champ OBJECTIFS PÉDAGOGIQUES est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-book-bookmark"></i></span>
+              </div>
+              <!--              <label for="exammodalities">MODALITÉS D’EXAMEN</label>-->
+              <textarea matInput
+                        class="form-control"
+                        type="text"
+                        name="exammodalities"
+                        [(ngModel)]="form.exammodalities"
+                        placeholder="Entrer modalités d'examen"
+                        required
+                        #exammodalities="ngModel"></textarea>
+              <div class="alert-danger" *ngIf="f.submitted && exammodalities.invalid">
+                <div *ngIf="exammodalities.errors.required">le champ modalités d'examen est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-single-copy-04"></i></span>
+              </div>
+              <!--              <label for="program">PROGRAMME</label>-->
+              <textarea matInput
+                        class="form-control"
+                        type="text"
+                        name="program"
+                        [(ngModel)]="form.program"
+                        placeholder="Entrer le programme"
+                        required
+                        #program="ngModel"></textarea>
+              <div class="alert-danger" *ngIf="f.submitted && program.invalid">
+                <div *ngIf="program.errors.required">le champ programme est obligatoire</div>
+              </div>
+            </div>
+            <div class="input-group input-group-alternative mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+              </div>
+              <!--              <label for="photo">IMAGE</label>-->
+              <input matInput
+                     class="form-control"
+                     type="file"
+                     name="photo"
+                     [(ngModel)]="form.photo"
+                     (change)="selectFiles($event.target.files)"
+                     required
+                     #photo="ngModel"
+              />
+              <div class="alert-danger" *ngIf="f.submitted && photo.invalid">
+                <div *ngIf="photo.errors.required">le champ image est obligatoire</div>
+              </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <label for=""> </label>
+            <ng-multiselect-dropdown
+              name="jobes"
+              [placeholder]="'selectionné Métiers visés'"
+              [settings]="dropdownSettingsJob"
+              [data]="jobes"
+              [(ngModel)]="selectedjobs"
+              (onDeSelect)="onDeselectedJob($event)"
+              (onSelect)="onselectjob($event)"
+              (onSelectAll)="onSelectAll($event)">
+            </ng-multiselect-dropdown>
+            <label for=""> </label>
+            <ng-multiselect-dropdown
+              name="jobes"
+              [placeholder]="'selectionné Domaines'"
+              [settings]="dropdownSettingsDomain"
+              [data]="domaines"
+              [(ngModel)]="selecteddomains"
+              (onSelect)="onselectdomain($event)"
+              (onSelectAll)="onSelectAlldomain($event)">
+            </ng-multiselect-dropdown>
+
+            <label for=""> </label>
+            <ng-multiselect-dropdown
+              name="funderes"
+              [placeholder]="'selectionné Financeurs possibles'"
+              [settings]="dropdownSettingsFunder"
+              [data]="funderes"
+              [(ngModel)]="selectedfunders"
+              (onSelect)="onselectfunder($event)"
+              (onSelectAll)="onSelectAllfunder($event)">
+            </ng-multiselect-dropdown>
+            <label for=""> </label>
+            <ng-multiselect-dropdown
+              name="modalityes"
+              [placeholder]="'selectionné Modalités'"
+              [settings]="dropdownSettingsModality"
+              [data]="modalityes"
+              [(ngModel)]="selectedmodalitys"
+              (onSelect)="onselectmodality($event)"
+              (onSelectAll)="onSelectAllmodality($event)">
+            </ng-multiselect-dropdown>
+
+            <button mat-raised-button class="btn btn-danger pull-right" >Ajouter</button>
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+              Erreur Ajout!<br />{{ errorMessage }}
+            </div>
+          </form>
+          <div class="alert alert-success" *ngIf="isSuccessful">
+            l'evenement a été ajouté avec succès
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

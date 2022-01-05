@@ -1,0 +1,92 @@
+<div class="header bg-gradient-info py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+      </div>
+    </div>
+
+    <div class="separator separator-bottom separator-skew zindex-100">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container mt--8 pb-5">
+    <!-- Table -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="text-center text-muted mb-4">
+              <small>Modifier cet utilisateur</small>
+            </div>  <div *ngIf="currentBook" class="edit-form">
+    <form>
+      <div class="form-group">
+        <label for="username">username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          [(ngModel)]="currentBook.username"
+          name="name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          [(ngModel)]="currentBook.email"
+          name="email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="currentBook.password"
+          name="password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="tel">tel</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="tel"
+          [(ngModel)]="currentBook.tel"
+          name="tel"
+        />
+      </div>
+
+      <div class="form-group">
+          <label for="role">Role</label>
+          <select [compareWith]="compareFn"
+                  type="text"
+                  class="form-control"
+                  id="role"
+                  required
+                  [(ngModel)]="currentBook.roles"
+                  name="role">
+            <option *ngFor="let role of roles" [value]="role">{{role.name}}</option>
+          </select>
+      </div>
+    </form>
+
+    <button type="button" class="btn btn-danger" (click)="updateBook()" >Update</button>
+<!--    <button type="button" class="btn btn-warning" (click)="deleteBook()">Delete</button>-->
+
+  </div>
+
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

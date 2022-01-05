@@ -1,0 +1,87 @@
+<!--<div class="header bg-gradient-info py-7 py-lg-8">-->
+<!--  <div class="container">-->
+<!--    <div class="header-body text-center mb-7">-->
+<!--      <div class="row justify-content-center">-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="separator separator-bottom separator-skew zindex-100">-->
+<!--      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>-->
+<!--      </svg>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; Page content &ndash;&gt;-->
+<!--  <div class="container mt&#45;&#45;8 pb-5">-->
+<!--    &lt;!&ndash; Table &ndash;&gt;-->
+<!--    <div class="row justify-content-center">-->
+<!--      <div class="col-lg-6 col-md-8">-->
+<!--        <div class="card bg-secondary shadow border-0">-->
+<!--          <div class="card-body px-lg-5 py-lg-5">-->
+<!--            <div class="text-center text-muted mb-4">-->
+<!--              <small>Ajouter un Panier</small>-->
+<!--            </div>-->
+<!--            <div class="card-body">-->
+<!--              <form  *ngIf="!isSuccessful"-->
+<!--                     name="form"-->
+<!--                     (ngSubmit)="f.form.valid && onSubmit()"-->
+<!--                     #f="ngForm"-->
+<!--                     novalidate>-->
+
+<!--                &lt;!&ndash;              <div class="form-group">&ndash;&gt;-->
+<!--                <div class="input-group input-group-alternative mb-3">-->
+<!--                  <div class="input-group-prepend">-->
+<!--                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>-->
+<!--                  </div>-->
+<!--                  <input-->
+<!--                    class="form-control"-->
+<!--                    type="text"-->
+<!--                    name="name"-->
+<!--                    [(ngModel)]="form.user.username"-->
+<!--                    placeholder="nom "-->
+<!--                    required-->
+<!--                    minlength="3"-->
+<!--                    maxlength="20"-->
+<!--                    #name="ngModel"-->
+<!--                  />-->
+<!--                  <div class="alert-danger" *ngIf="f.submitted && name.invalid">-->
+<!--                    <div *ngIf="name.errors.required">le champ nom est obligatoire</div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <div class="input-group input-group-alternative mb-3">-->
+<!--                  <div class="input-group-prepend">-->
+<!--                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>-->
+<!--                  </div>-->
+<!--                <input-->
+<!--                  class="form-control"-->
+<!--                  type="text"-->
+<!--                  name="title"-->
+<!--                  [(ngModel)]="form.training.title"-->
+<!--                  placeholder="nom "-->
+<!--                  required-->
+<!--                  minlength="3"-->
+<!--                  maxlength="20"-->
+<!--                  #title="ngModel"-->
+<!--                />-->
+<!--                <div class="alert-danger" *ngIf="f.submitted && title.invalid">-->
+<!--                  <div *ngIf="title.errors.required">le champ title est obligatoire</div>-->
+<!--                </div>-->
+<!--                <button mat-raised-button class="btn btn-danger pull-right" >Ajouter</button>-->
+<!--                <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">-->
+<!--                  Erreur Ajout!<br />{{ errorMessage }}-->
+<!--                </div>-->
+<!--              </form>-->
+<!--              <div class="alert alert-success" *ngIf="isSuccessful">-->
+<!--                l'utilisateur a été ajouté avec succès-->
+<!--              </div>-->
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+
+<!--</div>-->
+

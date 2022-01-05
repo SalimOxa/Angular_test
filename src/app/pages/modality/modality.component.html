@@ -1,0 +1,43 @@
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <a  class="btn btn-info" (click)="gotoajout()">ajouter une modalité</a>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <!-- Table -->
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <h3 class="mb-0">Table des modalités</h3>
+          </div>
+          <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+  <!--    <th>id</th>-->
+      <th>nom</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let modality of modalitys">
+
+      <td> {{modality.name}}</td>
+      <td>
+        <button routerLink="/edit-modality/{{modality.id}}" class="btn btn-info">Modifier</button>
+        <button (click)="deleteModality(modality)" class="btn btn-danger" >Supprimer</button>
+  <!--      <button (click)="modalityDetails(modality.id)" class="btn btn-info" >View</button>-->
+      </td>
+    </tr>
+    </tbody>
+  </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

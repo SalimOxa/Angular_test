@@ -1,0 +1,227 @@
+<!--<div class="header bg-gradient-info py-7 py-lg-8">-->
+<!--  <div class="container">-->
+<!--    <div class="header-body text-center mb-7">-->
+<!--      <div class="row justify-content-center">-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="separator separator-bottom separator-skew zindex-100">-->
+<!--      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">-->
+<!--        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>-->
+<!--      </svg>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; Page content &ndash;&gt;-->
+<!--  <div class="container mt&#45;&#45;8 pb-5">-->
+<!--    &lt;!&ndash; Table &ndash;&gt;-->
+<!--    <div class="row justify-content-center">-->
+<!--      <div class="col-lg-6 col-md-8">-->
+<!--        <div class="card bg-secondary shadow border-0">-->
+<!--          <div class="card-body px-lg-5 py-lg-5">-->
+<!--            <div class="text-center text-muted mb-4">-->
+<!--              <small>Modifier cet utilisateur</small>-->
+<!--            </div>  <div *ngIf="currentBook" class="edit-form">-->
+<!--            <form>-->
+<!--              <div class="form-group">-->
+<!--                <label for="titre">titre</label>-->
+<!--                <input-->
+<!--                  type="text"-->
+<!--                  class="form-control"-->
+<!--                  id="titre"-->
+<!--                  [(ngModel)]="currentBook.title"-->
+<!--                  name="name"-->
+<!--                />-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="description">description</label>-->
+<!--                <input-->
+<!--                  type="text"-->
+<!--                  class="form-control"-->
+<!--                  id="description"-->
+<!--                  [(ngModel)]="currentBook.description"-->
+<!--                  name="description"-->
+<!--                />-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="conditions">conditions</label>-->
+<!--                <input-->
+<!--                  type="conditions"-->
+<!--                  class="form-control"-->
+<!--                  id="conditions"-->
+<!--                  [(ngModel)]="currentBook.conditions"-->
+<!--                  name="conditions"-->
+<!--                />-->
+<!--              </div>-->
+<!--              <div class="form-group">-->
+<!--                <label for="domains">domains</label>-->
+<!--                <select [compareWith]="compareFn"-->
+<!--                        type="text"-->
+<!--                        class="form-control"-->
+<!--                        id="domains"-->
+<!--                        required-->
+<!--                        [(ngModel)]="currentBook.domains"-->
+<!--                        name="domains">-->
+<!--                  <option *ngFor="let domain of domains" [value]="domain">{{domain.name}}</option>-->
+<!--                </select>-->
+<!--              </div>-->
+<!--            </form>-->
+
+<!--            <button type="button" class="btn btn-danger" (click)="updateBook()" >Update</button>-->
+<!--            &lt;!&ndash;    <button type="button" class="btn btn-warning" (click)="deleteBook()">Delete</button>&ndash;&gt;-->
+
+<!--          </div>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+<div class="header bg-gradient-info py-7 py-lg-8">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+      </div>
+    </div>
+
+    <div class="separator separator-bottom separator-skew zindex-100">
+      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+           xmlns="http://www.w3.org/2000/svg">
+        <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+      </svg>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container mt--8 pb-5">
+    <!-- Table -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-body px-lg-5 py-lg-5">
+            <div class="text-center text-muted mb-4">
+              <small>Modifier Formation</small>
+            </div>
+            <div class="card-body">
+              <div *ngIf="currentBook" class="edit-form">
+                <form>
+                  <div class="form-group">
+                    <label for="name">titre</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="currentBook.title"
+                           name="title" />
+                  </div>
+                  <!--                    <div class="form-group">-->
+                  <!--                      <label for="name">type</label>-->
+                  <!--                      <input type="text" class="form-control" id="name" [(ngModel)]="currentEvent.type" name="type" />-->
+                  <!--                    </div>-->
+                  <div class="form-group">
+                    <label for="name">Description</label>
+                    <textarea type="text" class="form-control" id="name" [(ngModel)]="currentBook.description"
+                              name="description" >
+                      </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Tarif</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="currentBook.rate" name="rate" />
+                  </div>
+                  <div class="form-group">
+                    <label for="name">duration</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="currentBook.duration"
+                           name="duration" />
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Conditions d'accés</label>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="currentBook.conditions"
+                           name="conditions" />
+                  </div>
+                  <div class="form-group">
+                    <label for="name">publics visés et modalité d'admition</label>
+                    <textarea type="text" class="form-control" id="name" [(ngModel)]="currentBook.targetedaudience"
+                              name="targetedaudience" >
+                      </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Objectifs pédagogiques</label>
+                    <textarea type="text" class="form-control" id="name" [(ngModel)]="currentBook.object"
+                              name="object" >
+                      </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">Modalités d'examen</label>
+                    <textarea type="text" class="form-control" id="name" [(ngModel)]="currentBook.exammodalities"
+                              name="exammodalities" >
+                      </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="name">le programme</label>
+                    <textarea type="text" class="form-control" id="name" [(ngModel)]="currentBook.program"
+                              name="program" >
+                      </textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="photo">photo</label>
+                    <div class="col">{{currentBook.photo}}</div>
+                    <input type="file" class="form-control-file" id="photo" (change)="selectFiles($event.target.files)"
+                           [(ngModel)]="currentBook.photo" >
+
+                  </div>
+                  <label for=""> Job</label>
+                  <ng-multiselect-dropdown
+                    name="jobes"
+                    [placeholder]="'select Job'"
+                    [settings]="dropdownSettingsJob"
+                    [data]="jobes"
+                    [(ngModel)]="selectedjobs"
+                    (onDeSelect)="onDeselectedJob($event)"
+                    (onSelect)="onselectjob($event)"
+                    (onSelectAll)="onSelectAll($event)">
+                  </ng-multiselect-dropdown>
+
+                  <label for=""> Domain</label>
+                  <ng-multiselect-dropdown
+                    name="domaines"
+                    [placeholder]="'select domain'"
+                    [settings]="dropdownSettingsDomain"
+                    [data]="domaines"
+                    [(ngModel)]="selecteddomains"
+                    (onSelect)="onselectdomain($event)"
+                    (onSelectAll)="onSelectAlldomain($event)">
+                  </ng-multiselect-dropdown>
+
+                  <label for=""> Funder</label>
+                  <ng-multiselect-dropdown
+                    name="funderes"
+                    [placeholder]="'select funder'"
+                    [settings]="dropdownSettingsFunder"
+                    [data]="funderes"
+                    [(ngModel)]="selectedfunders"
+                    (onSelect)="onselectfunder($event)"
+                    (onSelectAll)="onSelectAllfunder($event)">
+                  </ng-multiselect-dropdown>
+                  <label for=""> Modality</label>
+                  <ng-multiselect-dropdown
+                    name="modalityes"
+                    [placeholder]="'select modality'"
+                    [settings]="dropdownSettingsModality"
+                    [data]="modalityes"
+                    [(ngModel)]="selectedmodalitys"
+                    (onSelect)="onselectmodality($event)"
+                    (onSelectAll)="onSelectAllmodality($event)">
+                  </ng-multiselect-dropdown>
+
+                </form>
+
+                <button type="button" class="btn btn-danger" (click)="updateFormation()">Update</button>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
