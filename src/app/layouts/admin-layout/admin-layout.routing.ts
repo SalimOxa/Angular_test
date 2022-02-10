@@ -33,6 +33,10 @@ import {FormationAssuranceComponent} from '../../pages/formation-assurance/forma
 import {FormationImmobilierComponent} from '../../pages/formation-immobilier/formation-immobilier.component';
 import {FormationBanqueComponent} from '../../pages/formation-banque/formation-banque.component';
 import {EditEventComponent} from '../../pages/edit-event/edit-event.component';
+import {ContactNousComponent} from '../../pages/contact-nous/contact-nous.component';
+import {FormationPresentielComponent} from '../../pages/formation-presentiel/formation-presentiel.component';
+import {FormationEnlignesComponent} from '../../pages/formation-enlignes/formation-enlignes.component';
+import {AProposComponent} from '../../pages/a-propos/a-propos.component';
 
 // @ts-ignore
 export const AdminLayoutRoutes: Routes = [
@@ -65,11 +69,13 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'detail-event/:id',           component: DetailEventComponent},
     { path: 'ajout-event',           component: AjoutEventComponent, canActivate: [AdminGuard] },
     { path: 'edit-formation/:id',           component: EditFormationComponent, canActivate: [AdminGuard] },
-    { path: 'assurance-formation',           component: FormationAssuranceComponent, canActivate: [AdminGuard] },
-    { path: 'immobilier-formation',           component: FormationImmobilierComponent, canActivate: [AdminGuard] },
-    { path: 'banque-formation',           component: FormationBanqueComponent, canActivate: [AdminGuard] },
-
-
+    { path: 'assurance-formation',           component: FormationAssuranceComponent},
+    { path: 'immobilier-formation',           component: FormationImmobilierComponent },
+    { path: 'banque-formation',           component: FormationBanqueComponent },
+    { path: 'contact-nous',           component: ContactNousComponent },
+  { path: 'formation-enligne',           component: FormationEnlignesComponent },
+  { path: 'formation-presentiel',           component: FormationPresentielComponent },
+  { path: 'A-Propos',           component: AProposComponent },
 
 
 

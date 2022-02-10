@@ -44,6 +44,10 @@ import {FormationAssuranceComponent} from '../../pages/formation-assurance/forma
 import {FormationBanqueComponent} from '../../pages/formation-banque/formation-banque.component';
 import {FormationImmobilierComponent} from '../../pages/formation-immobilier/formation-immobilier.component';
 import {EditEventComponent} from '../../pages/edit-event/edit-event.component';
+import {ContactNousComponent} from '../../pages/contact-nous/contact-nous.component';
+import {FormationPresentielComponent} from '../../pages/formation-presentiel/formation-presentiel.component';
+import {FormationEnlignesComponent} from '../../pages/formation-enlignes/formation-enlignes.component';
+import {AProposComponent} from '../../pages/a-propos/a-propos.component';
 
 @NgModule({
   imports: [
@@ -90,7 +94,11 @@ import {EditEventComponent} from '../../pages/edit-event/edit-event.component';
     FormationAssuranceComponent,
     FormationBanqueComponent,
     FormationImmobilierComponent,
-    EditEventComponent
+    EditEventComponent,
+    ContactNousComponent,
+    FormationPresentielComponent,
+    FormationEnlignesComponent,
+    AProposComponent,
   ]
 })
 

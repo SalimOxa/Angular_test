@@ -22,7 +22,7 @@
   <!-- Table -->
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8">
-      <div class="card bg-secondary shadow border-0">
+      <div class="card  shadow border-0">
         <div class="card-body px-lg-5 py-lg-5">
           <div class="text-center text-muted mb-4">
             <small>Ajouter une formation</small>
@@ -250,8 +250,9 @@
               (onSelect)="onselectmodality($event)"
               (onSelectAll)="onSelectAllmodality($event)">
             </ng-multiselect-dropdown>
-
-            <button mat-raised-button class="btn btn-danger pull-right" >Ajouter</button>
+<br>
+<!--            <button mat-raised-button class="btn btn-danger pull-right" >Ajouter</button>-->
+                <button mat-raised-button class="btn btn-danger center" >Ajouter</button>
             <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
               Erreur Ajout!<br />{{ errorMessage }}
             </div>

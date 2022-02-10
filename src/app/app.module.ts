@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {ClipboardModule} from 'ngx-clipboard';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppRoutingModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClipboardModule,
   ],
   declarations: [
     AppComponent,

@@ -27,8 +27,8 @@
           <div class=" align-items-center">
             <div class="row">
               <div class="col-lg-7 col-md-10 center">
-                <h1 class="display-2 text-white"> <span style="color:#000000"> {{ formation.title }}</span></h1>
-
+<!--                <h2 class="display-2 text-white"> <span style="color:#000000"> {{ formation.title }}</span></h2>-->
+<h1>{{ formation.title }}</h1>
                 <!--        <a href="#!" class="btn btn-info">Modifier profil</a>-->
               </div>
             </div>
@@ -144,7 +144,7 @@
 <!--        </ul>-->
         <br><br>
         <div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_left et_pb_bg_layout_light">
-          <div class="et_pb_text_inner"><h1 class="text-info">PRÉSENTATION ET OBJECTIFS</h1></div>
+          <div class="et_pb_text_inner text-info h7">PRÉSENTATION ET OBJECTIFS</div>
         </div>
         <div class="et_pb_module et_pb_wc_description et_pb_wc_description_0 et_pb_bg_layout_light  et_pb_text_align_justified">
           <div class="et_pb_module_inner">
@@ -154,7 +154,7 @@
           </div>
         </div>
         <div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_left et_pb_bg_layout_light">
-          <div class="et_pb_text_inner" ><h1 class="text-info">INFORMATIONS COMPLÉMENTAIRES</h1></div>
+          <div class="et_pb_text_inner text-info h7" >INFORMATIONS COMPLÉMENTAIRES</div>
         </div>
         <div>
 <!--          <table class="table table-striped">-->
@@ -188,31 +188,31 @@
     <div class="col">
       <div class="card shadow">
         <div class="et_pb_module et_pb_text et_pb_text_0  et_pb_text_align_left et_pb_bg_layout_light">
-          <div class="et_pb_text_inner"><h1 class="text-info">INFORMATIONS DÉTAILLÉES</h1></div>
+          <div class="et_pb_text_inner text-info h7">INFORMATIONS DÉTAILLÉES</div>
         </div>
         <br>
         <div class="row">
           <div class="col"><h2 class="text-info">PUBLICS VISÉS ET MODALITÉS D’ADMISSION</h2></div>
           <div class="w-100"></div>
-          <div class="col">{{formation.targetedaudience}}</div>
+          <div class="col"><pre>{{formation.targetedaudience}}</pre></div>
         </div>
         <br>
         <div class="row">
           <div class="col"><h2 class="text-info">OBJECTIFS PÉDAGOGIQUES</h2></div>
           <div class="w-100"></div>
-          <div class="col">{{formation.object}}</div>
+          <div class="col"><pre>{{formation.object}}</pre></div>
         </div>
         <br>
         <div class="row">
           <div class="col"><h2 class="text-info">MODALITÉS D’EXAMEN</h2></div>
           <div class="w-100"></div>
-          <div class="col">{{formation.exammodalities}}</div>
+          <div class="col"><pre>{{formation.exammodalities}}</pre></div>
         </div>
         <br>
         <div class="row">
           <div class="col"><h2 class="text-info">PROGRAMME</h2></div>
           <div class="w-100"></div>
-          <div class="col">{{formation.program}}</div>
+          <div class="col" ><pre>{{formation.program}}</pre></div>
         </div>
         <br>
         <div class="row" *ngif="showAdminBoard">

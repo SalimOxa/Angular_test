@@ -1,4 +1,4 @@
-<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white" id="sidenav-main">
+<nav class="navbar navbar-vertical navbar-expand-md navbar-light bg-white " id="sidenav-main">
   <div class="container-fluid">
     <!-- Toggler -->
     <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
@@ -91,6 +91,52 @@
           </div>
         </div>
       </form>
+      <ul *ngIf= "!showAdminBoard">
+        <h1>
+          <a href="/">
+        <li type="button"  >
+          A propos
+        </li>
+          </a>
+          <br>
+        </h1>
+        <h1>
+          <li type="button"  >
+        Qui sommes nous          </li>
+        </h1>
+        <br>
+        <h1>
+      <li class="btn-group " >
+        <div type="button"  routerLink="/formation">
+          Trouver ma formation
+        </div>
+        <div  type="button" class=" dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" >
+        </div>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/banque-formation">Banque</a>
+          <a class="dropdown-item" routerLink="/assurance-formation">Assurance</a>
+          <a class="dropdown-item" routerLink="/immobilier-formation">Immobilier</a>
+        </div>
+      </li>
+        </h1>
+
+        <h1>
+          <br>
+      <li class="btn-group ">
+        <div type="button"  routerLink="/events">
+         Nos evenements
+        </div>
+        <div  type="button" class=" dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" >
+        </div>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" routerLink="/banque-formation">Banque</a>
+          <a class="dropdown-item" routerLink="/assurance-formation">Assurance</a>
+          <a class="dropdown-item" routerLink="/immobilier-formation">Immobilier</a>
+        </div>
+      </li>
+        </h1>
+      </ul>
+
       <!-- Navigation -->
       <ul class="navbar-nav" *ngIf="showAdminBoard">
           <li *ngFor="let menuItems of menuItemss" class="{{menuItems.class}} nav-item">
@@ -115,14 +161,16 @@
 <!--          </div>-->
 <!--        </li>-->
 <!--      </ul>-->
-      <ul class="navbar-nav" *ngIf= "!showAdminBoard">
-        <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-          <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">
-            <i class="ni {{menuItem.icon}}"></i>
-            {{menuItem.title}}
-          </a>
-        </li>
-      </ul>
+<!--      <ul class="navbar-nav" *ngIf= "!showAdminBoard">-->
+<!--        <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">-->
+<!--          <a routerLinkActive="active" [routerLink]="[menuItem.path]" class="nav-link">-->
+<!--            <i class="ni {{menuItem.icon}}"></i>-->
+<!--            {{menuItem.title}}-->
+<!--          </a>-->
+<!--        </li>-->
+<!--        <li>    <button>blabla</button></li>-->
+
+<!--      </ul>-->
 <!--      <label>-->
 <!--        <select class="custom-select" formControlName="fruits" >-->
 <!--          <option >Choose Value</option>-->

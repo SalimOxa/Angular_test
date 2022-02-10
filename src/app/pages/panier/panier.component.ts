@@ -46,7 +46,7 @@ export class PanierComponent implements OnInit {
       },
       err => console.error(err),
       () => console.log('completed') );
-    this.panierService.getTotalPrix().subscribe(
+    this.panierService.getTotalPrix(this.tokenStorageService.getId()).subscribe(
       res => this.nbr = res,
       err => console.log(err)
     );

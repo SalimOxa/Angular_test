@@ -54,7 +54,7 @@ export class PanierService {
   deletePanier(id: number): Observable<any> {
     return this.http.delete(`${this.AUTH_API}panier/${id}`);
   }
-  getTotalPrix(): Observable<any> {
-    return this.http.get(`${this.AUTH_API}panier/totalPrix`, this.options);
+  getTotalPrix(id: number): Observable<any> {
+    return this.http.get(`${this.AUTH_API}panier/totalPrix/${id}`, this.options);
   }
 }

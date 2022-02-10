@@ -43,7 +43,7 @@ export const ROUTESS: RouteInfo[] = [
   // { path: '/register', title: 'Register',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'ni-tv-2 text-primary', class: '' },
+    { path: '/dashboard', title: 'A propos',  icon: 'ni-tv-2 text-primary', class: '' },
     { path: '/formation', title: 'Formation',  icon: 'ni-bullet-list-67 text-red', class: '' },
     { path: '/events', title: 'Evenement',  icon: 'ni-bullet-list-67 text-red', class: '' },
   // { path: '/icons', title: 'Icons',  icon: 'ni-planet text-blue', class: '' },
@@ -67,9 +67,22 @@ export class SidebarComponent implements OnInit {
   showUserBoard = false;
   isLoggedIn = false;
   private roles: string[];
-
-  constructor(private router: Router, private tokenStorageService: TokenStorageService) { }
-
+  categories: any[];
+  constructor(private router: Router, private tokenStorageService: TokenStorageService) {
+    this.categories = [
+      {
+        path: '/assurance-formation',
+        id: "1",
+        name: "Assurance",
+       icon: 'ni-bullet-list-67 text-red'
+      },
+      {
+        id: "2",
+        name: "Banque",
+        path: '/banque-formation'
+      }
+    ];
+  }
   ngOnInit() {
     this.menuItemss = ROUTESS.filter(menuItems => menuItems);
     this.menuItems = ROUTES.filter(menuItem => menuItem);

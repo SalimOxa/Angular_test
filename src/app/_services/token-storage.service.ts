@@ -34,6 +34,9 @@ export class TokenStorageService {
   public getEmail() {
     return this.getUser().email;
   }
+  public getId() {
+    return this.getUser().id;
+  }
   public getRoles() {
     return this.getUser().roles;
   }

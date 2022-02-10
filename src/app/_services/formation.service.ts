@@ -101,4 +101,32 @@ export class FormationService {
 
     return this.http.put<any>(`${this.AUTH_API}trainings/${id}/update?jobids=${jobids}&domainids=${domains}&funderids=${funders}&modalitysids=${modalitys}`, formation);
   }
+  getFormationsEnligneList(){
+    return this.http.get("http://localhost:8080/api/auth/chercherFormationenligne")
+      .pipe(map(res => res ));
+
+  }
+  getFormationsPresentielList(){
+    return this.http.get(`${this.AUTH_API}chercherFormationpresentiel`)
+      .pipe(map(res => res ));
+  }
+  getFormationCountEnligne(){
+    return this.http.get(`${this.AUTH_API}training/countEnligne`)
+  }
+  getFormationCountPresentiel(){
+    return this.http.get(`${this.AUTH_API}training/countPresentiel`)
+  }getFormationCount(){
+
+    return this.http.get(`${this.AUTH_API}training/count`)
+  }
+  getFormationCountAssurance(){
+    return this.http.get(`${this.AUTH_API}training/countAssurance`)
+  }
+
+  getFormationCountBanque(){
+    return this.http.get(`${this.AUTH_API}training/countBanque`)
+  }
+  getFormationCountImmobilier(){
+    return this.http.get(`${this.AUTH_API}training/countImmobilier`)
+  }
 }
