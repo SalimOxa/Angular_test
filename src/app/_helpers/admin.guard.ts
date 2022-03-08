@@ -9,6 +9,7 @@ import {TokenStorageService} from '../_services/token-storage.service';
 export class AdminGuard implements CanActivate {
   constructor(private auth: TokenStorageService, private router: Router) {
   }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

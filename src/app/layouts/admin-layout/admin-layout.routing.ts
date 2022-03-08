@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
-import { IconsComponent } from '../../pages/icons/icons.component';
-import { MapsComponent } from '../../pages/maps/maps.component';
+import { IconsComponent } from '../../pages/quisommenous/icons.component';
+import { MapsComponent } from '../../pages/parole_d\'expert/maps.component';
 import { UserProfileComponent } from '../../pages/user-profile/user-profile.component';
 import { TablesComponent } from '../../pages/tables/tables.component';
 import {DomaineComponent} from '../../pages/domaine/domaine.component';
@@ -43,8 +43,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent},
     { path: 'user-profile',   component: UserProfileComponent, canActivate: [AdminGuard] },
     { path: 'tables',  component: TablesComponent, canActivate: [AdminGuard] },
-    { path: 'icons',          component: IconsComponent, canActivate: [AdminGuard] },
-    { path: 'maps',           component: MapsComponent, canActivate: [AdminGuard] },
+    { path: 'quisommenous',          component: IconsComponent, canActivate: [AdminGuard] },
+    { path: 'parole_expert',           component: MapsComponent, canActivate: [AdminGuard] },
     { path: 'domaine',           component: DomaineComponent, canActivate: [AdminGuard] },
     { path: 'edit-users/:id',           component: EditUsersComponent, canActivate: [AdminGuard] },
     { path: 'ajout-users',           component: AjoutUserComponent, canActivate: [AdminGuard] },

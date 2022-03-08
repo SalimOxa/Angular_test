@@ -40,4 +40,5 @@ export class TokenStorageService {
   public getRoles() {
     return this.getUser().roles;
   }
+
 }

@@ -1,7 +1,8 @@
 <!-- partie user -->
 <div *ngIf="!showAdminBoard">
-<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 400px; background-image: url(assets/img/icons/common/formation.jpg); background-size: cover; background-position: center top;">
-  <!-- Mask -->
+<!--<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 400px; background-image: url(assets/img/quisommenous/common/WhatsApp.jpeg); background-size: cover; background-position: center top;">-->
+  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center " style="min-height: 400px; background-image: radial-gradient(circle at top left,#ffffff 22%,rgba(255,255,255,0) 89%),url(assets/img/icons/common/WhatsApp.jpeg); background-size: cover; background-position: center top;"  >
+    <!-- Mask -->
   <span class="mask bg-gradient-info opacity-2"></span>
   <!-- Header container -->
   <div class="container-fluid d-flex align-items-center">
@@ -10,8 +11,8 @@
         <br><br>
         <h3 class=" ">Activons votre potentiel professionnel </h3>
         <br>
-        <p class=" mt-0 mb-5">CFTF vous propose des formations continues obligatoires et labellisées
-          pour l’ensemble des professionnels de la finance, du crédit et de l’assurance.
+        <p class=" mt-0 mb-5">CFTF vous propose des formations continues obligatoires <br>et labellisées
+          pour l’ensemble des professionnels de la finance, <br>du crédit et de l’assurance.
           <br>
           Nous accompagnons tous les professionnels :
           Débutant, en reconversion professionnelle ou en acquisition de compétences</p>
@@ -35,7 +36,7 @@
           </li>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <li>
-            <a href="">Parole d'expert</a>
+            <a href="/#/parole_expert">Parole d'expert</a>
           </li>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <li>
@@ -72,7 +73,7 @@
       <h3 class="mb-0"></h3>
     </div>
     <div class="form-group" >
-      <input type="text" class="form-control" placeholder="Rechercher une formation" [(ngModel)]="data">
+      <input type="text" class="form-control" placeholder="Mot clef..." [(ngModel)]="data">
     </div>
     <div class="card-columns " >
       <div class="card btn p2" *ngFor = "let formation of formations  | filter:data | paginate : {itemsPerPage : 9 , currentPage : p}"
@@ -80,7 +81,7 @@
         <ng-container *ngIf="formation.photo != null">
           <img class="card-img-top img-responsive" [src]="'http://localhost:8080/api/auth/files/' + formation.photo | safe:'resourceUrl'"  >
         </ng-container>
-        <!--                <img class="card-img-top img-responsive" src="assets/img/icons/common/img1.jpg" alt="Card image cap">-->
+        <!--                <img class="card-img-top img-responsive" src="assets/img/quisommenous/common/img1.jpg" alt="Card image cap">-->
         <h3 align="center">{{formation.title}}</h3>
         <!--                <p>{{formation.description}}</p>-->
         <button class="btn1" routerLink="/detail-formation/{{formation.id}}">

@@ -4,6 +4,7 @@ import {AuthService} from '../../_services/auth.service';
 import {Router} from '@angular/router';
 import {Role} from '../../role';
 import {Observable} from 'rxjs';
+import {UploadFilesService} from '../../_services/file.service';
 
 @Component({
   selector: 'app-ajout-user',
@@ -21,7 +22,9 @@ export class AjoutUserComponent implements OnInit {
   submitted = false;
   users: Observable<User[]>;
   user: User = new User();
-  constructor(private authService: AuthService, private router: Router) {
+  public filename: string;
+
+  constructor(private authService: AuthService, private router: Router, private uploadService: UploadFilesService) {
   }
 
   ngOnInit() {
@@ -49,6 +52,13 @@ export class AjoutUserComponent implements OnInit {
     this.authService.register(this.form)
       .subscribe(data => console.log(data), error => console.log(error));
     this.user = new User();
+  }
+  selectFiles(event) {
+    console.log(event[0]);
+    this.uploadService.upload1(event[0]).subscribe(a => {
+      this.filename = event[0].name;
+      console.log("file");
+    })
   }
   reloadPage1() {
     this.router.navigate(['/tables']);

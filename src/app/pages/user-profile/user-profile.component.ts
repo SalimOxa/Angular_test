@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
       res => this.roles = res,
       err => console.log(err),
       () => {
-        console.log(this.roles);
+        // console.log(this.roles);
       }
     );
   }
@@ -77,17 +77,17 @@ export class UserProfileComponent implements OnInit {
     // this.reloadPage1();
   }
 
-  deleteBook(): void {
-    this.booksService.deleteUser(this.currentUser.id)
-      .subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/tables']);
-        },
-        error => {
-          console.log(error);
-        });
-  }
+  // deleteBook(): void {
+  //   this.booksService.deleteUser(this.currentUser.id)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.router.navigate(['/tables']);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
   compareFn(role1, role2) {
     return role1 && role2 ? role1.id === role2.id : role1 === role2;
   }

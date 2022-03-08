@@ -1,9 +1,49 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+  <span class="mask bg-gradient-dark opacity-4"></span>
+
   <div class="container-fluid">
     <!-- Brand -->
 <!--    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" routerLinkActive="active" [routerLink]="['/dashboard']">{{getTitle()}}</a>-->
-    <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" routerLinkActive="active" >{{getTitle()}}</a>
 
+    <!-- User -->
+    <ul class="navbar-nav align-items-center d-none d-md-flex" *ngIf="isLoggedIn" >
+      <li class="nav-item" ngbDropdown placement="bottom-right">
+        <a class="nav-link pr-0" role="button" ngbDropdownToggle>
+          <div class="media align-items-center  ">
+            <div class="media-body ml-2 d-none d-lg-block">
+              <!--              <span class="mb-0 text-sm  font-weight-bold">{{ currentUser.username }}</span>-->
+                  <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" routerLinkActive="active" [routerLink]="['/dashboard']">{{getTitle()}}</a>
+            </div>
+          </div>
+        </a>
+        <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
+          <!--          <div class=" dropdown-header noti-title">-->
+          <!--            <h6 class="text-overflow m-0">Welcome!</h6>-->
+          <!--          </div>-->
+          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+            <i class="ni ni-single-02"></i>
+            <span>Mon profile</span>
+          </a>
+          <!--          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">-->
+          <!--            <i class="ni ni-settings-gear-65"></i>-->
+          <!--            <span>Settings</span>-->
+          <!--          </a>-->
+          <!--          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">-->
+          <!--            <i class="ni ni-calendar-grid-58"></i>-->
+          <!--            <span>Activity</span>-->
+          <!--          </a>-->
+          <!--          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">-->
+          <!--            <i class="ni ni-support-16"></i>-->
+          <!--            <span>Support</span>-->
+          <!--          </a>-->
+          <div class="dropdown-divider"></div>
+          <a href="#!" class="dropdown-item" (click)="logout()" routerLink="dashboard">
+            <i class="ni ni-user-run" ></i>
+            <span>Se déconnecter</span>
+          </a>
+        </div>
+      </li>
+    </ul>
     <!--     Form -->
     <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
       <div class="form-group mb-0" [ngClass]="{ 'focused': focus === true }">
@@ -24,10 +64,10 @@
     <ul class="navbar-nav align-items-center d-none d-md-flex" *ngIf="isLoggedIn" >
       <li class="nav-item" ngbDropdown placement="bottom-right">
         <a class="nav-link pr-0" role="button" ngbDropdownToggle>
-          <div class="media align-items-center">
+          <div class="media align-items-center  ">
             <span class="avatar avatar-sm rounded-circle">
-              <img alt="Image placeholder" src="assets/img/theme/logoHF.jpg">
-<!--              <img alt="Image placeholder" [src]="'http://localhost:8080/api/auth/files/' + currentUser.photo | safe:'resourceUrl'">-->
+<!--              <img alt="Image placeholder" src="assets/img/theme/logoHF.jpg">-->
+              <img [src]="'http://localhost:8080/api/auth/files/' + currentUser.photo ">
             </span>
             <div class="media-body ml-2 d-none d-lg-block">
 <!--              <span class="mb-0 text-sm  font-weight-bold">{{ currentUser.username }}</span>-->
@@ -36,12 +76,12 @@
           </div>
         </a>
         <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
-          <div class=" dropdown-header noti-title">
-            <h6 class="text-overflow m-0">Welcome!</h6>
-          </div>
+<!--          <div class=" dropdown-header noti-title">-->
+<!--            <h6 class="text-overflow m-0">Welcome!</h6>-->
+<!--          </div>-->
           <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
             <i class="ni ni-single-02"></i>
-            <span>My profile</span>
+            <span>Mon profile</span>
           </a>
 <!--          <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">-->
 <!--            <i class="ni ni-settings-gear-65"></i>-->
@@ -58,23 +98,22 @@
           <div class="dropdown-divider"></div>
           <a href="#!" class="dropdown-item" (click)="logout()" routerLink="dashboard">
             <i class="ni ni-user-run" ></i>
-            <span>Logout</span>
+            <span>Se déconnecter</span>
           </a>
         </div>
       </li>
          </ul>
     <ul class="navbar-nav align-items-center d-none d-md-flex">
-    <div class="nav-item" *ngIf="!isLoggedIn">
+    <div class="nav-item " *ngIf="!isLoggedIn">
       <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/login']">
         <i class="ni ni-key-25"></i>
-        <span class="nav-link-inner--text">Login</span>
+          <a class=" btn text-white">Login</a>
       </a>
     </div>
     </ul>
+
   </div>
 </nav>
-
-
 <!--<nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">-->
 <!--  <div class="container-fluid">-->
 <!--    &lt;!&ndash; Brand &ndash;&gt;-->

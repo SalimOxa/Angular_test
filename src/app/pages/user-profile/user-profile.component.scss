@@ -1,3 +1,26 @@
 .bg-secondary {
   background-color: #eceeef!important;
 }
+.image-ronde{
+  width : 150px; height : 150px;
+  border: none;
+  -moz-border-radius : 75px;
+  -webkit-border-radius : 75px;
+  border-radius : 75px;
+}
+
+//img {
+//  max-width: 100%;
+//  height: auto;
+//  //margin: 0;
+//  //padding: 0;
+//  //border: 0;
+//  //outline: 0;
+//  //font-size: 100%;
+//  //-ms-text-size-adjust: 100%;
+//  //-webkit-text-size-adjust: 100%;
+//  //vertical-align: baseline;
+//  background: transparent;
+//  //aspect-ratio: auto 2000 / 1600;
+//
+//}

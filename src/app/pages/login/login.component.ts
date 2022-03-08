@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
-       this.reloadPage1();
+      this.reloadPage1();
 
     }
   }

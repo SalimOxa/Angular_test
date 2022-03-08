@@ -1,65 +1,290 @@
-<div class="header bg-gradient-info pb-8 pt-5 pt-md-8">
-    <div class="container-fluid" *ngIf=" showAdminBoard">
-      <div class="header-body">
-        <a  class="btn btn-info" (click)="gotoajout()">ajouter un évènement</a>
-      </div>
+<div class="header bg-gradient-info pb-8 pt-5 pt-md-8" *ngIf="showAdminBoard">
+  <div class="container-fluid">
+    <div class="header-body">
+      <a  class="btn btn-info" (click)="gotoajout()">ajouter un événement</a>
     </div>
   </div>
-  <!-- Page content -->
-  <div class="container-fluid mt--7">
-    <!-- Table -->
+</div>
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center " style="min-height: 400px; background-image: radial-gradient(circle at top left,#ffffff 22%,rgba(255,255,255,0) 89%),url(assets/img/brand/Banniere-site-web-1024x683.png); background-size: cover; background-position: center top;"  *ngIf="!showAdminBoard">
+  <!-- Mask -->
+  <span class="mask bg-gradient-info opacity-2"></span>
+
+  <!-- Header container -->
+  <div class="container-fluid d-flex align-items-center">
     <div class="row">
-      <div class="col">
-        <div class="card shadow">
-          <div class="card-header border-0">
-            <h3 class="mb-0">Table des évenements</h3>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Rechercher une formation" [(ngModel)]="data">
-          </div>
-          <div class="card-columns" *ngIf=" !showAdminBoard" >
-            <div class="card btn" *ngFor = "let formation of events  | filter:data | paginate : {itemsPerPage : 9 , currentPage : p}"
-                 routerLink="/detail-event/{{formation.id}}">
-              <ng-container *ngIf="formation.photo != null">
-                <img class="card-img-top img-responsive" [src]="'http://localhost:8080/api/auth/files/' + formation.photo | safe:'resourceUrl'"  >
-              </ng-container>
-              <!--                <img class="card-img-top img-responsive" src="assets/img/icons/common/img1.jpg" alt="Card image cap">-->
-              <h3 align="center">{{formation.title}}</h3>
-              <!--                <p>{{formation.description}}</p>-->
-              <button class="btn1" routerLink="/detail-event/{{formation.id}}">
-                <span class="price">{{formation.rate}}TND</span>
-                <span class="buy">Detail</span>
-              </button>
-            </div>
-          </div>
-          <pagination-controls (pageChange) ="p= $event" *ngIf=" !showAdminBoard"></pagination-controls>
-
-          <div class="table-responsive" *ngIf="showAdminBoard">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>title</th>
-      <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor = "let event of events |  filter:data | paginate : {itemsPerPage : 9 , currentPage : p}">
-      <td> {{event.title}}</td>
-      <td>
-        <button routerLink="/edit-event/{{event.id}}" class="btn btn-info">Update</button>
-        <button (click)="deleteEvent(event)" class="btn btn-danger" >Delete</button>
-       <button routerLink="/detail-event/{{event.id}}" class="btn btn-info" >View</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-            <pagination-controls (pageChange) ="p= $event"></pagination-controls>
-
-          </div>
-        </div>
+      <div class="col-lg-9 col-md-10">
+        <br><br>
+        <h3 class=" ">Activons votre potentiel professionnel </h3>
+        <br>
+        <p class=" mt-0 mb-5">Notre catalogue présente un large panel de nos formations habilitantes et réglementaires.
+          <br>
+          Nos formations  apporteront l’efficacité nécessaire pour vos actions sur le terrain et vous permettront d’être en conformité avec toutes les règlementations en vigueur.</p>
       </div>
     </div>
   </div>
+</div>
+<!-- new page -->
+
+<div>
+  <div class="container">
+    <header *ngIf="isLoggedIn">
+      <nav>
+        <ul>
+
+          <li>
+            <a href="#/formation">Trouver ma formation</a>
+          </li>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li>
+            <a href="">Parole d'expert</a>
+          </li>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <li>
+            <a href="/#/contact-nous">Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+    <header *ngIf="!isLoggedIn">
+      <nav>
+        <ul>
+
+          <li>
+            <a href="#/formation">Trouver ma formation</a>
+          </li>
+
+          <li>
+            <a href="">Parole d'expert</a>
+          </li>
+
+          <li>
+            <a href="/#/login" >Espace aprenant</a>
+          </li>
+
+          <li>
+            <a href="/#/contact-nous">Contact</a>
+          </li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <div class="et_pb_module et_pb_text et_pb_text_2  et_pb_text_align_left et_pb_bg_layout_dark">
+      <div class="et_pb_text_inner">
+        <h6>Trouver</h6>
+        <h2> événement</h2>
+      </div>
+    </div>
+    <div class="et_pb_text_inner"><p>Sélectionnez vos critères de recherche afin de trouver l'événement qui correspond à vos attentes.</p></div>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Mot clef..." [(ngModel)]="data">
+    </div>
+<!--    <li>-->
+<!--      <button type="button"  class="btn btn-secondary btn-lg btn-block  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" >-->
+<!--        DOMAINES DE FORMATION-->
+<!--      </button>-->
+
+<!--      &lt;!&ndash;      <div  type="button" class=" dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" >&ndash;&gt;-->
+<!--      &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      <div class="dropdown-menu btn-lg btn-block"  >-->
+<!--        <a1 class="dropdown-item " routerLink="/banque-formation" style="color: #0a0c0d">Banque</a1>-->
+<!--        <a1 class="dropdown-item" routerLink="/assurance-formation" style="color: #0a0c0d">Assurance</a1>-->
+<!--        <a1 class="dropdown-item" routerLink="/immobilier-formation" style="color: #0a0c0d">Immobilier</a1>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--    <br>-->
+<!--    <li>-->
+<!--      <button type="button"  class="btn btn-secondary btn-lg btn-block  dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" >-->
+<!--        MODALITÉS DE FORMATION-->
+<!--      </button>-->
+
+<!--      &lt;!&ndash;      <div  type="button" class=" dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" >&ndash;&gt;-->
+<!--      &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--      <div class="dropdown-menu btn-lg btn-block"  >-->
+<!--        <a1 class="dropdown-item " routerLink="/formation-enligne" style="color: #0a0c0d">En ligne </a1>-->
+<!--        <a1 class="dropdown-item" routerLink="/formation-presentiel" style="color: #0a0c0d">En Presentiel</a1>-->
+<!--      </div>-->
+<!--    </li>-->
+    <br><br><br>
+    <div class="card-columns " *ngIf=" !showAdminBoard" >
+      <div class="card btn p2" *ngFor = "let formation of events  | filter:data | paginate : {itemsPerPage : 9 , currentPage : p}"
+           routerLink="/detail-formation/{{formation.id}}">
+        <ng-container *ngIf="formation.photo != null">
+          <img class="card-img-top img-responsive" [src]="'http://localhost:8080/api/auth/files/' + formation.photo | safe:'resourceUrl'"  >
+        </ng-container>
+        <!--                <img class="card-img-top img-responsive" src="assets/img/quisommenous/common/img1.jpg" alt="Card image cap">-->
+        <h3 align="center">{{formation.title}}</h3>
+        <!--                <p>{{formation.description}}</p>-->
+        <button class="btn1" routerLink="/detail-formation/{{formation.id}}">
+          <span class="price">{{formation.rate}}TND</span>
+          <span class="buy">Detail</span>
+        </button>
+      </div>
+    </div>
+    <pagination-controls (pageChange) ="p= $event" *ngIf=" !showAdminBoard"></pagination-controls>
+    <!-- Page content -->
+
+    <div class="table-responsive" *ngIf="showAdminBoard">
+      <table class="table table-striped"  >
+        <thead>
+        <tr>
+          <th>title</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let formation of events|  filter:data | paginate : {itemsPerPage : 9 , currentPage : p}">
+          <td > {{formation.title }}</td>
+          <td>
+            <button routerLink="/edit-formation/{{formation.id}}" class="btn btn-info">Update</button>
+            <button (click)="deleteEvent(formation)" class="btn btn-danger" >Delete</button>
+            <button routerLink="/detail-formation/{{formation.id}}" class="btn btn-info" >View</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange) ="p= $event"></pagination-controls>
+
+    </div>
+  </div>
+</div>
+
+<!-- old page -->
 
 
+<!-- Page content -->
+<!--  <div class="container-fluid mt&#45;&#45;7" >-->
+<!--    &lt;!&ndash; Table &ndash;&gt;-->
+<!--    <div class="row" >-->
+<!--      <div class="col">-->
+<!--        <div class="card shadow">-->
 
+<!--          <div>-->
+<!--            <table class="table table-striped" >-->
+<!--              <thead>-->
+<!--&lt;!&ndash;              <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                <th class="btn" routerLink="/assurance-formation">assurance</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <th></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <th class="btn" routerLink="/banque-formation">banque</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <th></th>&ndash;&gt;-->
+<!--&lt;!&ndash;                <th class="btn" routerLink="/immobilier-formation">immobilier</th>&ndash;&gt;-->
+<!--&lt;!&ndash;              </tr>&ndash;&gt;-->
+<!--              <tr>-->
+<!--                <th class="btn" ><a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" routerLink="/trouverFormations" role="tab" aria-controls="nav-home" aria-selected="true">Trouver ma formation</a>-->
+<!--                </th>-->
+<!--                <th class="btn" ><a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" routerLink="/paroles" role="tab" aria-controls="nav-contact" aria-selected="false">Parole d'expert</a>-->
+<!--                </th>-->
+<!--                <th class="btn" ><a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" routerLink="/espaceaprenant" role="tab" aria-controls="nav-contact" aria-selected="false">Espace aprenant</a>-->
+<!--                </th>-->
+<!--                <th class="btn" ><a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" routerLink="/contactnous" role="tab" aria-controls="nav-contact" aria-selected="false">Contact nous</a>-->
+<!--                </th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--            </table>-->
+<!--          <div class="card-header border-0" >-->
+<!--            <h3 class="mb-0">Table des formations</h3>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <input type="text" class="form-control" placeholder="Rechercher une formation" [(ngModel)]="data">-->
+<!--          </div>-->
+<!--            <div class="card-columns " *ngIf=" !showAdminBoard" >-->
+<!--              <div class="card btn p2" *ngFor = "let formation of formations  | filter:data | paginate : {itemsPerPage : 9 , currentPage : p}"-->
+<!--                   routerLink="/detail-formation/{{formation.id}}">-->
+<!--                <ng-container *ngIf="formation.photo != null">-->
+<!--                  <img class="card-img-top img-responsive" [src]="'http://localhost:8080/api/auth/files/' + formation.photo | safe:'resourceUrl'"  >-->
+<!--                </ng-container>-->
+<!--&lt;!&ndash;                <img class="card-img-top img-responsive" src="assets/img/quisommenous/common/img1.jpg" alt="Card image cap">&ndash;&gt;-->
+<!--                <h3 align="center">{{formation.title}}</h3>-->
+<!--&lt;!&ndash;                <p>{{formation.description}}</p>&ndash;&gt;-->
+<!--                <button class="btn1" routerLink="/detail-formation/{{formation.id}}">-->
+<!--                  <span class="price">{{formation.rate}}TND</span>-->
+<!--                  <span class="buy">Detail</span>-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          <pagination-controls (pageChange) ="p= $event" *ngIf=" !showAdminBoard"></pagination-controls>-->
+
+<!--          &lt;!&ndash; Page content &ndash;&gt;-->
+
+<!--                  <div class="table-responsive" *ngIf="showAdminBoard">-->
+<!--                    <table class="table table-striped"  >-->
+<!--                      <thead>-->
+<!--                      <tr>-->
+<!--                        &lt;!&ndash;    <th>id</th>&ndash;&gt;-->
+<!--      <th>title</th>-->
+<!--&lt;!&ndash;      <th>type</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>description</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>rate</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>duration</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>conditions</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>targetedaudience</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>object</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>exammodalities</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>program</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>photo</th>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;      <th>job</th>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                        <th>domaine</th>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <th>job</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>fender</th>&ndash;&gt;-->
+<!--&lt;!&ndash;      <th>modality</th>&ndash;&gt;-->
+<!--      <th>Actions</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr *ngFor = "let formation of formations|  filter:data | paginate : {itemsPerPage : 9 , currentPage : p}">-->
+<!--      <td > {{formation.title }}</td>-->
+<!--&lt;!&ndash;      <td> {{formation.type}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.description}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.rate}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.duration}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.conditions}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.targetedaudience}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.object}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.exammodalities}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.program}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td> {{formation.photo}}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul class="list-group list-group-horizontal">&ndash;&gt;-->
+<!--&lt;!&ndash;          <li class="list-group" *ngFor="let group of formation.domains">&ndash;&gt;-->
+<!--&lt;!&ndash;            {{group.name}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul class="list-group list-group-horizontal">&ndash;&gt;-->
+<!--&lt;!&ndash;          <li class="list-group" *ngFor="let group of formation.jobs">&ndash;&gt;-->
+<!--&lt;!&ndash;            {{group.name}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <table border="0">&ndash;&gt;-->
+<!--&lt;!&ndash;          <tr *ngFor="let group of formation.domains">&ndash;&gt;-->
+<!--&lt;!&ndash;            <td>{{ group.name }}</td>&ndash;&gt;-->
+<!--&lt;!&ndash;          </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </table>&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--&lt;!&ndash;      <td>&ndash;&gt;-->
+<!--&lt;!&ndash;        <ul class="list-group list-group-horizontal">&ndash;&gt;-->
+<!--&lt;!&ndash;          <li class="list-group">{{formation.jobs[0].name}},</li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li class="list-group">{{formation.jobs[1].name}},</li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li class="list-group">{{formation.jobs[2].name}},</li>&ndash;&gt;-->
+<!--&lt;!&ndash;          <li class="list-group">{{formation.jobs[3].name}}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;        </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;      </td>&ndash;&gt;-->
+<!--      <td>-->
+<!--        <button routerLink="/edit-formation/{{formation.id}}" class="btn btn-info">Update</button>-->
+<!--        <button (click)="deleteFormation(formation)" class="btn btn-danger" >Delete</button>-->
+<!--        <button routerLink="/detail-formation/{{formation.id}}" class="btn btn-info" >View</button>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+<!--                    <pagination-controls (pageChange) ="p= $event"></pagination-controls>-->
+
+<!--                  </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  </div>-->

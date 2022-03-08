@@ -27,20 +27,20 @@ export class UploadFilesService {
   getFiles(): Observable<any> {
     return this.http.get(`${this.baseUrl}/files`);
   }
-  // upload1(file: File): Observable<HttpEvent<any>> {
-  //   const formData: FormData = new FormData();
-  //
-  //   formData.append('file', file);
-  //
-  //   const req = new HttpRequest('POST', `${this.baseUrl}/upload1`, formData, {
-  //     reportProgress: true,
-  //     responseType: 'json'
-  //   });
-  //
-  //   return this.http.request(req);
-  // }
-  //
-  // getFiles1(): Observable<any> {
-  //   return this.http.get(`${this.baseUrl}/files1`);
-  // }
+  upload1(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.baseUrl}/upload1`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
+
+  getFiles1(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/files1`);
+  }
 }

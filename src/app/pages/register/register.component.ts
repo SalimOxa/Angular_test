@@ -5,6 +5,7 @@ import {AuthService} from '../../_services/auth.service';
 import {Router} from '@angular/router';
 import {Role} from '../../role';
 import {UploadFilesService} from '../../_services/file.service';
+import {ImageCroppedEvent} from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
   users: Observable<User[]>;
   user: User = new User();
   public filename: string;
+
   constructor(private authService: AuthService, private router: Router, private uploadService: UploadFilesService,
   ) {
   }
@@ -60,4 +62,5 @@ export class RegisterComponent implements OnInit {
       console.log("file");
     })
   }
+
 }
